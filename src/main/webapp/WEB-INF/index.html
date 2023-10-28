@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入bulma的CDN链接 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript">
+        let tableData = []
+        $(function(){
+            $.ajax({
+                url : 'http://localhost:8080/index/dutyDoctors',
+                type : 'get',
+                dataType : 'json',
+                success : function(res){
+                    tableData = res.data;
+                    //方法中传入的参数data为后台获取的数据
+                    for (const i in tableData){
+                        let tr = '<td>' + tableData[i].id + '</td>' + '<td>' + tableData[i].name + '</td>' + '<td>' + tableData[i].subject + '</td>';
+                        $("#dayTable").append('<tr>'+tr+'</tr>');
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <table id='dayTable' class="table is-striped is-fullwidth">
+        <tr class="th">
+            <th>id</th>
+            <th>name</th>
+            <th>subject</th>
+        </tr>
+    </table>
+    <!--suppress HtmlUnknownTarget -->
+    <a href="/index/per.html">eage</a>
+</div>
+
+
+
+
+</body>
+
+</html>
