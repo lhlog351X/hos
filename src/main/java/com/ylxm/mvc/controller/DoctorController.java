@@ -28,11 +28,4 @@ public class DoctorController {
     public R<List<Doctor>> getDutyDoctors(){
         return R.success(doctorService.dutyDoctors());
     }
-
-    @GetMapping("/per.html")
-    public ModelAndView getPer(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("per");
-        return modelAndView;
-    }
 }
