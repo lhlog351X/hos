@@ -1,5 +1,6 @@
 package com.ylxm.mvc.dao.impl;
 
+import com.ylxm.mvc.dao.UserDao;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,5 +9,5 @@ import org.springframework.stereotype.Component;
  * 2023/10/30 0:14
  */
 @Component
-public class UserDaoImpl {
+public class UserDaoImpl implements UserDao {
 }

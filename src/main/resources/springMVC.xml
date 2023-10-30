@@ -24,9 +24,6 @@
     <mvc:default-servlet-handler/>
 
 
-    <bean id="doctorDao" class="com.ylxm.mvc.dao.DoctorDao" abstract="true"/>
-    <bean id="doctorService" class="com.ylxm.mvc.service.DoctorService" abstract="true"/>
-
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <!-- 驱动 -->
