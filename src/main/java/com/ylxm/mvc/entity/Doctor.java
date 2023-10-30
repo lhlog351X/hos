@@ -18,8 +18,10 @@ public class Doctor implements Serializable {
 
     private long id;
 
+    private long subId;
+
     private String name;
 
-    private String subject;
+
 
 }

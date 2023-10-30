@@ -5,6 +5,32 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript">
+        function login() {
+            var form = document.getElementById("user");
+            var formData = new FormData(form);
+            var data = {};
+            for (var pair of formData.entries()) {
+                data[pair[0]] = pair[1];
+            }
+            console.log(JSON.stringify(data))
+            $.ajax({
+                url : 'http://localhost:8080/user/login',
+                data : JSON.stringify(data),
+                type : 'post',
+                contentType: "application/json",
+                dataType : 'json',
+                success : function(res) {
+                    if (res.msg === 'YES'){
+                        location.assign('/index');
+                    }else {
+                        alert('登录失败');
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 <body>
 
@@ -14,7 +40,7 @@
             <div class="columns is-centered is-4-desktop is-3-widescreen">
                 <div class="column">
                     <!--suppress HtmlUnknownTarget -->
-                    <form class="box" action="/user/login" method="post">
+                    <form id="user" class="box" onsubmit="return false">
                         <div class="field has-text-centered">
                             <img src="../img/login.png" width="167" alt=""/>
                         </div>
@@ -38,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="field">
-                                <input type="submit" class="button is-success" value="login">
+                                <input type="button" class="button is-success" value="login" onclick="login()">
                                 <input type="reset" class="button" value="reset">
                             </div>
                         </div>

@@ -15,14 +15,21 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("")
 public class PageController {
 
-    @GetMapping("/per.html")
+    @GetMapping("/index")
+    public ModelAndView getIndex(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+    @GetMapping("/per")
     public ModelAndView getPer(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("per");
         return modelAndView;
     }
 
-    @GetMapping("/login.html")
+    @GetMapping("/login")
     public ModelAndView getLogin(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");

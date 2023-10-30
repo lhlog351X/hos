@@ -18,7 +18,7 @@
                     tableData = res.data;
                     //方法中传入的参数data为后台获取的数据
                     for (const i in tableData){
-                        let tr = '<td>' + tableData[i].id + '</td>' + '<td>' + tableData[i].name + '</td>' + '<td>' + tableData[i].subject + '</td>';
+                        let tr = '<td>' + tableData[i].id + '</td>' + '<td>' + tableData[i].name + '</td>' + '<td>' + tableData[i].subId + '</td>';
                         $("#dayTable").append('<tr>'+tr+'</tr>');
                     }
                 }
