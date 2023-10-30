@@ -17,23 +17,15 @@ import java.util.List;
  * 2023/10/25 0:43
  */
 @Component
+@AllArgsConstructor
 public class DoctorDaoImpl implements DoctorDao {
 
 
-    @Autowired
-    private  JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
     @Override
     public List<Doctor> dutyDoctors(){
         String sql = "select * from doctor";
-        List<Doctor> list ;
-        try{
-            list = jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Doctor.class));
-            if (list != null){
-                return list;
-            }
-        } catch (Exception e) {
-            throw new RException(e.toString());
-        }
-        return list;
+        return jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Doctor.class));
     }
 }

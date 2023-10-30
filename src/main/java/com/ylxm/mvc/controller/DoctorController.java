@@ -3,6 +3,7 @@ package com.ylxm.mvc.controller;
 import com.ylxm.mvc.common.R;
 import com.ylxm.mvc.entity.Doctor;
 import com.ylxm.mvc.service.DoctorService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +20,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/index")
+@AllArgsConstructor
 public class DoctorController {
 
-    @Autowired
-    private DoctorService doctorService;
+    private final DoctorService doctorService;
 
     @GetMapping("/dutyDoctors")
     public R<List<Doctor>> getDutyDoctors(){

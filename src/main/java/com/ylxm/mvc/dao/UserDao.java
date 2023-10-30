@@ -1,5 +1,6 @@
 package com.ylxm.mvc.dao;
 
+import com.ylxm.mvc.entity.User;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,4 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserDao {
+
+    User login(String account);
 }
