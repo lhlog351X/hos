@@ -18,9 +18,7 @@ public class Attend implements Serializable {
 
     private long docId;
 
-    private long subId;
-
-    private String name;
+    private String docName;
 
     private Integer slice;
 
